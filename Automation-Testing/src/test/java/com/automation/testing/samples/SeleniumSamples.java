@@ -140,4 +140,14 @@ public class SeleniumSamples {
         Thread.sleep(2000);
         driver.quit();
     }
+    @Test
+    public void forceClickSamples() throws InterruptedException,MalformedURLException{
+        WebDriver driver =new WebDriverFactory(new DriverParams().setDriver("chrome").setBinaries("C:\\Users\\RV\\Downloads\\chromedriver_win32 (5)")).get();
+        WebDriverExtensions extensions=new WebDriverExtensions(driver);
+        extensions.goToUrl("https://gravitymvctestapplication.azurewebsites.net/");
+        WebElement element=extensions.getElement(By.xpath("//a[.='Students']"));
+        extensions.forceClick(element);
+        Thread.sleep(2000);
+        driver.quit();
+    }
 }
