@@ -150,4 +150,14 @@ public class SeleniumSamples {
         Thread.sleep(2000);
         driver.quit();
     }
+    @Test
+    public void sendKeysIntervalSamples() throws InterruptedException,MalformedURLException{
+        WebDriver driver =new WebDriverFactory(new DriverParams().setDriver("chrome").setBinaries("C:\\Users\\RV\\Downloads\\chromedriver_win32 (5)")).get();
+        WebDriverExtensions extensions=new WebDriverExtensions(driver);
+        extensions.goToUrl("https://gravitymvctestapplication.azurewebsites.net/Student");
+        WebElement element=extensions.getEnabledElement(By.xpath("//input[@id='SearchString']"));
+        extensions.sendKeys(element,"Heloo",1000);
+        Thread.sleep(2000);
+        driver.quit();
+    }
 }
