@@ -78,5 +78,12 @@ public class WebDriverExtensions { //Like Utilities
         Actions actions=new Actions(driver);
         return actions.moveToElement(element);
     }
+    //Force Click
+    public WebElement forceClick(WebElement element){
+        WebDriver driver=((WrapsDriver)element).getWrappedDriver();
+        JavascriptExecutor executor=(JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();",element);
+        return element;
+    }
 
 }
