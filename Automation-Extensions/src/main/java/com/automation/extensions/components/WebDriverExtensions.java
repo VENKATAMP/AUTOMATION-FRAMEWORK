@@ -85,5 +85,12 @@ public class WebDriverExtensions { //Like Utilities
         executor.executeScript("arguments[0].click();",element);
         return element;
     }
+    public WebElement sendKeys(WebElement element,String text,int interval) throws InterruptedException {
+        for (char c:text.toCharArray()) {
+            element.sendKeys(String.valueOf(c));
+            Thread.sleep(interval);
+        }
+        return element;
+    }
 
 }
